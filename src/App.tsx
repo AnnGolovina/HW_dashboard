@@ -1,25 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { FlexColumn } from "./components/shared/Flex";
+import { Auth } from "./components/static/Auth";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FlexColumn
+      width="100%"
+      height="100vh"
+      alignItems="center"
+      justifyContent="center"
+    >
+     <Auth />
+    </FlexColumn>
+    
   );
 }
 
