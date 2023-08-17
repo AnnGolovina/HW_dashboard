@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { FlexColumn } from "./components/shared/Flex";
 import { Auth } from "./components/static/Auth";
+//import { Counter } from "./components/static/Counter";
 
 function App() {
   return (

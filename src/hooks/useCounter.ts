@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export const useCounter = (key: number) => {
+export const useCounter = (key: number): [number, () => void, () => void] => {
 	const [count, setCount] = useState(key);
 
 	const increment = () => {
@@ -8,7 +8,7 @@ export const useCounter = (key: number) => {
 	}
 
 	const decrement = () => {
-		setCount(count -1);
+		setCount(count - 1);
 	}
 	useEffect(() => {
 	}, [count])
