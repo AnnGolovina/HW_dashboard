@@ -1,18 +1,34 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FlexColumn } from "../shared/Flex";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { useNavigate } from "react-router-dom";
+import { DashboardContext } from "../../contexts/DashboardContext";
 
 export const Auth = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
-  //  console.log(formData);
-  const [_, setLokalStorageFormData] = useLocalStorage("userData");
+  const [_, setLocalStorageFormData] =
+    useLocalStorage("userData");
+
+  const navigate = useNavigate();
+
+  const {setUser} = useContext(DashboardContext)!;
 
   const onSubmit = () => {
-    setLokalStorageFormData(formData);
+    //check password and email
+
+    if (formData.email === 'admin' && formData.password === 'admin') {
+      setLocalStorageFormData(formData);
+      setUser(formData);
+      navigate('/dashboard');
+    } else {
+      alert("Wrong data")
+    }
+
     setFormData({ email: "", password: "" });
   };
 
   return (
+
     <FlexColumn
       width="280px"
       height="350px"

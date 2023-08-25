@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 interface FlexPropsInterface {
   width?: string;
+  minWidth?: string;
   height?: string;
   margin?: string;
   padding?: string;
@@ -10,12 +11,17 @@ interface FlexPropsInterface {
   background?: string;
   border?: string;
   borderRadius?: string;
+  gap?: string;
+  overflowX?: string;
+  position?: string;
+  flexDirection?: string;
 }
 
 export const Flex = styled.div<FlexPropsInterface>`
   display: flex;
 
   width: ${(props) => props.width || "auto"};
+  min-width: ${(props) => props.minWidth || "auto"};
   height: ${(props) => props.height || "auto"};
   margin: ${(props) => props.margin || "0"};
   padding: ${(props) => props.padding || "0"};
@@ -24,6 +30,11 @@ export const Flex = styled.div<FlexPropsInterface>`
   background: ${(props) => props.background || "none"};
   border: ${(props) => props.border || "none"};
   border-radius: ${(props) => props.borderRadius || "0"};
+  gap: ${(props) => props.gap || "0"};
+  overflow-x: ${(props) => props.overflowX || "auto"};
+  position: ${(props) => props.position || "auto"};
+  flex-direction: ${(props) => props.flexDirection || "row"}
+  
 `;
 
 export const FlexRow = styled(Flex)`
