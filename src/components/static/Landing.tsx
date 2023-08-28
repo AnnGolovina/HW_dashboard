@@ -17,6 +17,7 @@ import {
   SocialNetworks,
 } from "../shared/Landing.styled";
 import { styled } from "styled-components";
+import { ScrollTopContextProvider, ScrollPoint, Link as ScrollLink } from "react-use-scroll-to";
 
 const StyledLandingView = styled(LandingView)``;
 
@@ -57,6 +58,8 @@ const StyledSocialNetworks = styled(SocialNetworks)``;
 
 export const Landing = () => {
   return (
+
+    <ScrollTopContextProvider>
     <FlexColumn width="100%" minWidth="865px" overflowX="hidden">
       <StyledLandingView width="100%" height="1020px">
         <StyleHeaderView
@@ -73,10 +76,10 @@ export const Landing = () => {
           </Flex>
 
           <RightLinks className="right-links">
-            <Link to="/login">About Us</Link>
-            <Link to="/login">Tours</Link>
-            <Link to="/login">Contacts</Link>
-            <Link to="/login">
+            <Link to=""><ScrollLink elementTag="about-us">About Us</ScrollLink></Link>
+            <Link to=""><ScrollLink elementTag="tours">Tours</ScrollLink></Link>
+            <Link to=""><ScrollLink elementTag="contacts">Contacts</ScrollLink></Link>
+            <Link to="">
               <img
                 className="burger-menu"
                 src="/assets/burger-menu.png"
@@ -87,14 +90,17 @@ export const Landing = () => {
           </RightLinks>
         </StyleHeaderView>
 
+
         <StyleTitleInfo alignItems="center" margin="170px auto 0">
-          <h1 className="title">Montenegro</h1>
+          
+        <ScrollPoint tag="about-us"><h1 className="title">Montenegro</h1></ScrollPoint>
           <p className="title-text">
             Welcome to magical Montenegro: where the blue Adriatic waves lap the
             mountain peaks and cultural treasures have long beckoned travelers.
             Go on an unforgettable journey with us!
           </p>
           <button>Let's go!</button>
+          
         </StyleTitleInfo>
       </StyledLandingView>
 
@@ -105,11 +111,13 @@ export const Landing = () => {
         alignItems="strech"
         overflowX="hidden"
       >
+        
         <StyleMainInfo>
+        
           <div className="img-card">
             <figure>
               <figcaption>
-                <h3>What we offer</h3>
+              <ScrollPoint tag="tours"> <h3>What we offer</h3></ScrollPoint>
                 <p>
                   The incredible landscapes of Montenegro are a fairy-tale world
                   of natural beauty.
@@ -135,6 +143,7 @@ export const Landing = () => {
             </figure>
           </div>
         </StyleMainInfo>
+        
 
         <StyleMainInfo>
           <div className="img-card">
@@ -295,7 +304,7 @@ export const Landing = () => {
           </Link>
 
           <StyledContacts>
-            <h2>Contacts</h2>
+            <ScrollPoint tag="contacts"><h2>Contacts</h2></ScrollPoint>
             <p>montenegrotour@gmail.com</p>
             <p>+7 897 897 897 99</p>
           </StyledContacts>
@@ -308,5 +317,7 @@ export const Landing = () => {
         </StyledFooter>
       </StyledViewBookTour>
     </FlexColumn>
+
+    </ScrollTopContextProvider>
   );
 };
