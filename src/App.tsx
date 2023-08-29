@@ -12,8 +12,9 @@ function App() {
   return (
     <Flex width="100vw" height="100vh">
       <FlexColumn
-        width="100%"
-      >
+        width="100%"  
+        alignItems="center"
+        justifyContent="center">
         <DashboardContextProvider>
         <RouterProvider router={router} />
         </DashboardContextProvider>

@@ -15,6 +15,7 @@ interface FlexPropsInterface {
   overflowX?: string;
   position?: string;
   flexDirection?: string;
+  bacgroundSize?: string;
 }
 
 export const Flex = styled.div<FlexPropsInterface>`
@@ -33,7 +34,8 @@ export const Flex = styled.div<FlexPropsInterface>`
   gap: ${(props) => props.gap || "0"};
   overflow-x: ${(props) => props.overflowX || "auto"};
   position: ${(props) => props.position || "auto"};
-  flex-direction: ${(props) => props.flexDirection || "row"}
+  flex-direction: ${(props) => props.flexDirection || "row"};
+  background-size: ${(props) => props.bacgroundSize || "auto"};
   
 `;
 
@@ -43,43 +45,4 @@ export const FlexRow = styled(Flex)`
 
 export const FlexColumn = styled(Flex)`
   flex-direction: column;
-
-  & > .input-class {
-    width: 75%;
-    height: 40px;
-    margin: 15px auto;
-    border-radius: 5px;
-    font-size: 15px;
-    outline: none;
-    border: 1px solid #385418;
-    background-color: lightgrey;
-  }
-
-  & > .input-class::placeholder {
-    padding: 5px;
-    font-size: 18px;
-    color: #868686;
-    font-family: "Acme", sans-serif;
-    font-family: "Catamaran", sans-serif;
-    font-family: "Chakra Petch", sans-serif;
-    font-family: "Tektur", cursive;
-  }
-
-  & > h1 {
-	color: #2b6b0f;
-  }
-
-  & > button {
-	font-family: "Acme", sans-serif;
-    font-family: "Catamaran", sans-serif;
-    font-family: "Chakra Petch", sans-serif;
-    font-family: "Tektur", cursive;
-	font-size: 20px;
-	margin: 30px 10px auto ;
-	width: 76%;
-	height: auto;
-	background-color: #2b6b0f;
-	border-radius: 5px;
-	color: white;
-  }
 `;
