@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-  ]
+, "../../../88-90 lesson exam weather app/Weather App (React)/weather-app/src/components/types.ts"  ]
 }

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { FlexColumn } from "../shared/Flex";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { useNavigate } from "react-router-dom";
@@ -16,6 +16,19 @@ export const Auth = () => {
 
   const StyleAuthForm = styled(AuthForm)``;
 
+  const elInput = useRef<HTMLInputElement | null>(null);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+
+  const handleMouseEnter = () => {
+    if (buttonRef.current) {
+      buttonRef.current.innerText = "Press";
+    }}
+
+  const handleMouseLeave = () => {
+      if (buttonRef.current) {
+        buttonRef.current.innerText = "Submit";
+      }}
+
   const onSubmit = () => {
     //check password and email
 
@@ -27,6 +40,7 @@ export const Auth = () => {
       alert("Wrong data");
     }
 
+    elInput.current?.focus();
     setFormData({ email: "", password: "" });
   };
 
@@ -49,6 +63,7 @@ export const Auth = () => {
           }
         />
         <input
+          //ref={elInput}
           className="input-class"
           type="password"
           placeholder="password"
@@ -57,7 +72,8 @@ export const Auth = () => {
             setFormData({ ...formData, password: event.target.value })
           }
         />
-        <button onClick={onSubmit}>Submit</button>
+        <button onClick={onSubmit} ref={buttonRef}  onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}>Submit</button>
       </AuthForm>
     </FlexColumn>
   );
